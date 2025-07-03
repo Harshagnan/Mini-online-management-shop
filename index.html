@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Online Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">Mini Store</h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="home">
+                    <span class="nav-icon">🏠</span>
+                    Home
+                </button>
+                <button class="nav-btn" data-view="catalog">
+                    <span class="nav-icon">📦</span>
+                    Product Catalog
+                </button>
+                <button class="nav-btn" data-view="management">
+                    <span class="nav-icon">⚙️</span>
+                    Product Management
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home View -->
+            <section id="home" class="view active">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h2 class="hero-title">Welcome to the Mini Online Store</h2>
+                        <p class="hero-subtitle">Your go-to place for Electronics, Clothing, and Watches!</p>
+                        <div class="hero-features">
+                            <div class="feature-card">
+                                <span class="feature-icon">💻</span>
+                                <h3>Electronics</h3>
+                                <p>Latest gadgets and tech</p>
+                            </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">👕</span>
+                                <h3>Clothing</h3>
+                                <p>Fashion for everyone</p>
+                            </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">⌚</span>
+                                <h3>Watches</h3>
+                                <p>Timeless accessories</p>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="cta-btn" data-view="catalog">Browse Products</button>
+                            <button class="cta-btn secondary" data-view="management">Manage Store</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Catalog View -->
+            <section id="catalog" class="view">
+                <div class="catalog-header">
+                    <h2>Product Catalog</h2>
+                    <div class="catalog-controls">
+                        <div class="search-container">
+                            <input type="text" id="searchInput" placeholder="Search by Product ID..." class="search-input">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <select id="categoryFilter" class="category-filter">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="productGrid" class="product-grid">
+                    <div class="empty-state">
+                        <span class="empty-icon">📦</span>
+                        <h3>No products available</h3>
+                        <p>Add some products to get started!</p>
+                        <button class="cta-btn" data-view="management">Add Products</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Management View -->
+            <section id="management" class="view">
+                <div class="management-container">
+                    <div class="form-section">
+                        <h2>Add New Product</h2>
+                        <form id="productForm" class="product-form">
+                            <div class="form-group">
+                                <label for="productId">Product ID</label>
+                                <input type="text" id="productId" name="productId" required placeholder="e.g., ELEC001">
+                                <span class="form-hint">Must be unique</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="productName">Product Name</label>
+                                <input type="text" id="productName" name="productName" required placeholder="e.g., Wireless Headphones">
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Watches">Watches</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" id="price" name="price" required step="0.01" min="0" placeholder="0.00">
+                            </div>
+                            <button type="submit" class="submit-btn">Add Product</button>
+                        </form>
+                    </div>
+
+                    <div class="products-section">
+                        <h2>Current Products</h2>
+                        <div id="productList" class="product-list">
+                            <div class="empty-state">
+                                <span class="empty-icon">📋</span>
+                                <h3>No products yet</h3>
+                                <p>Add your first product using the form</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
